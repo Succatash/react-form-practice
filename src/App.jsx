@@ -1,12 +1,24 @@
-import {useState} from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+// import {useState} from 'react';
+import SignUpForm from './components/SignUpForm';
+import Authenticate from './components/Authenticate';
 import './App.css';
+import {useState} from 'react';
 
 function App() {
-	const [count, setCount] = useState(0);
+	const [token, setToken] = useState(null);
+	const [authUsername, setAuthUsername] = useState('');
 
-	return <></>;
+	return (
+		<>
+			<p>
+				{' '}
+				<span id='username'>username: </span>
+				<span>{authUsername}</span>
+			</p>
+			<Authenticate token={token} setAuthUsername={setAuthUsername} />
+			<SignUpForm setToken={setToken} />
+		</>
+	);
 }
 
 export default App;
